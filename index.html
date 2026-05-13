@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Corner Pantry — Fine Wines, Spirits & Craft Beer</title>
+    <meta
+      name="description"
+      content="Corner Pantry is your neighborhood liquor store — handpicked wines, premium spirits, craft beer and mixers. Stop by, call ahead, or browse our selection."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Age verification gate -->
+    <div id="age-gate" class="age-gate" role="dialog" aria-modal="true" aria-labelledby="age-gate-title">
+      <div class="age-gate__card">
+        <div class="age-gate__brand">
+          <span class="logo-mark">CP</span>
+          <span class="logo-wordmark">Corner Pantry</span>
+        </div>
+        <h2 id="age-gate-title">Are you 21 or older?</h2>
+        <p>
+          You must be of legal drinking age in your location to enter this site.
+          By continuing you certify that you meet the legal age requirement.
+        </p>
+        <div class="age-gate__actions">
+          <button id="age-yes" class="btn btn--primary" type="button">Yes, I'm 21+</button>
+          <button id="age-no" class="btn btn--ghost" type="button">No, exit</button>
+        </div>
+        <p class="age-gate__legal">
+          Please drink responsibly. We ID at the register.
+        </p>
+      </div>
+    </div>
+
+    <!-- Header / Nav -->
+    <header class="site-header" id="top">
+      <div class="container nav">
+        <a href="#top" class="nav__brand" aria-label="Corner Pantry home">
+          <span class="logo-mark">CP</span>
+          <span class="logo-wordmark">Corner Pantry</span>
+        </a>
+
+        <button
+          class="nav__toggle"
+          id="nav-toggle"
+          aria-label="Open menu"
+          aria-controls="primary-nav"
+          aria-expanded="false"
+        >
+          <span></span><span></span><span></span>
+        </button>
+
+        <nav class="nav__menu" id="primary-nav" aria-label="Primary">
+          <a href="#shop">Shop</a>
+          <a href="#featured">Featured</a>
+          <a href="#about">About</a>
+          <a href="#visit">Visit</a>
+          <a href="#contact" class="btn btn--small btn--primary">Call the store</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="container hero__inner">
+        <p class="eyebrow">Your neighborhood liquor store</p>
+        <h1>
+          Handpicked <em>wines</em>, premium <em>spirits</em>,<br />
+          and the coldest <em>craft beer</em> on the block.
+        </h1>
+        <p class="lede">
+          Family-run since day one. Whether you're hosting friends, gifting a
+          favorite bottle, or just unwinding — Corner Pantry has something
+          worth pouring.
+        </p>
+        <div class="hero__actions">
+          <a href="#shop" class="btn btn--primary">Browse the shelves</a>
+          <a href="#visit" class="btn btn--ghost">Visit us today</a>
+        </div>
+        <ul class="hero__badges" aria-label="Store highlights">
+          <li>Curated selection</li>
+          <li>Local craft beer</li>
+          <li>Friendly recommendations</li>
+          <li>Gift packaging</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Categories -->
+    <section id="shop" class="section">
+      <div class="container">
+        <header class="section__head">
+          <p class="eyebrow">Shop by category</p>
+          <h2>Everything for the perfect pour.</h2>
+          <p class="section__sub">
+            Stop in to browse hundreds of bottles — these are just a few of
+            our favorite shelves.
+          </p>
+        </header>
+
+        <div class="cards">
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M24 6h16v14c0 6-4 10-8 12v22h6" />
+                <path d="M24 6v14c0 6 4 10 8 12" />
+                <path d="M22 54h20" />
+              </svg>
+            </div>
+            <h3>Wine</h3>
+            <p>
+              Reds, whites, rosé and bubbly — from everyday pours to
+              special-occasion bottles. Ask us for a pairing.
+            </p>
+            <ul class="card__tags">
+              <li>Cabernet</li><li>Pinot</li><li>Champagne</li><li>Natural</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M26 6h12v8l4 8v32H22V22l4-8z" />
+                <path d="M22 30h20" />
+              </svg>
+            </div>
+            <h3>Spirits</h3>
+            <p>
+              Whiskey, bourbon, tequila, gin, vodka, rum — small-batch
+              favorites and the classics, all in stock.
+            </p>
+            <ul class="card__tags">
+              <li>Bourbon</li><li>Single Malt</li><li>Mezcal</li><li>Gin</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 10h20v6l4 4v30c0 2-2 4-4 4H20c-2 0-4-2-4-4V20l4-4z" />
+                <path d="M20 22h20" />
+                <path d="M26 30v18" />
+                <path d="M34 30v18" />
+              </svg>
+            </div>
+            <h3>Craft Beer</h3>
+            <p>
+              Build-your-own six-packs, local breweries, sours, lagers,
+              hazies — kept ice cold and rotated weekly.
+            </p>
+            <ul class="card__tags">
+              <li>Local</li><li>IPA</li><li>Lager</li><li>Sour</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 12h36l-4 12H18z" />
+                <path d="M22 24l4 28h12l4-28" />
+                <path d="M32 38v10" />
+              </svg>
+            </div>
+            <h3>Mixers & More</h3>
+            <p>
+              Premium tonics, bitters, fresh citrus, ice, glassware, and
+              everything you need for cocktail night.
+            </p>
+            <ul class="card__tags">
+              <li>Tonic</li><li>Bitters</li><li>Garnish</li><li>Ice</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Picks -->
+    <section id="featured" class="section section--alt">
+      <div class="container">
+        <header class="section__head">
+          <p class="eyebrow">This week's picks</p>
+          <h2>Bottles we're loving right now.</h2>
+          <p class="section__sub">
+            Rotating selections from our staff. Quantities are limited —
+            come grab one before they're gone.
+          </p>
+        </header>
+
+        <div class="featured">
+          <article class="bottle">
+            <div class="bottle__art bottle__art--red" aria-hidden="true">
+              <div class="bottle__shape"></div>
+            </div>
+            <div class="bottle__body">
+              <p class="bottle__tag">Staff Pick</p>
+              <h3>Sonoma Coast Pinot Noir</h3>
+              <p class="bottle__desc">
+                Bright cherry, silky tannins, a whisper of oak. Perfect with
+                a Tuesday-night roast chicken.
+              </p>
+              <div class="bottle__meta">
+                <span class="price">$28</span>
+                <span class="dot">•</span>
+                <span>750ml</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="bottle">
+            <div class="bottle__art bottle__art--amber" aria-hidden="true">
+              <div class="bottle__shape"></div>
+            </div>
+            <div class="bottle__body">
+              <p class="bottle__tag">New Arrival</p>
+              <h3>Small-Batch Kentucky Bourbon</h3>
+              <p class="bottle__desc">
+                Caramel, toasted oak, and a long warm finish. A near-perfect
+                Old Fashioned base.
+              </p>
+              <div class="bottle__meta">
+                <span class="price">$46</span>
+                <span class="dot">•</span>
+                <span>750ml</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="bottle">
+            <div class="bottle__art bottle__art--green" aria-hidden="true">
+              <div class="bottle__shape"></div>
+            </div>
+            <div class="bottle__body">
+              <p class="bottle__tag">Local Love</p>
+              <h3>Neighborhood Hazy IPA — 4 pack</h3>
+              <p class="bottle__desc">
+                Brewed three blocks away. Juicy, soft, citrus-forward, and
+                impossible to put down.
+              </p>
+              <div class="bottle__meta">
+                <span class="price">$16</span>
+                <span class="dot">•</span>
+                <span>4 × 16oz</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <p class="section__note">
+          * Prices and availability subject to change. Call ahead to confirm
+          stock on a specific bottle.
+        </p>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section">
+      <div class="container about">
+        <div class="about__copy">
+          <p class="eyebrow">About Corner Pantry</p>
+          <h2>A little shop with a big cellar.</h2>
+          <p>
+            Corner Pantry is a family-run liquor store tucked into the heart
+            of the neighborhood. We believe great bottles shouldn't be
+            intimidating — so we taste everything we stock, write honest
+            shelf-talkers, and love a good recommendation.
+          </p>
+          <p>
+            Whether you're picking up a $14 weeknight red or building a
+            wedding bar, we'll treat you like a regular from day one.
+          </p>
+          <div class="about__stats">
+            <div>
+              <strong>700+</strong>
+              <span>bottles on the shelves</span>
+            </div>
+            <div>
+              <strong>40+</strong>
+              <span>local craft beers</span>
+            </div>
+            <div>
+              <strong>1</strong>
+              <span>very opinionated dog</span>
+            </div>
+          </div>
+        </div>
+        <aside class="about__card">
+          <h3>Gift wrapping & curbside</h3>
+          <p>
+            Need a last-minute housewarming gift? We hand-wrap bottles and
+            offer free curbside pickup — just call the shop.
+          </p>
+          <a href="#contact" class="btn btn--primary btn--small">Call to arrange</a>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Visit / Hours / Contact -->
+    <section id="visit" class="section section--dark">
+      <div class="container visit">
+        <div class="visit__head">
+          <p class="eyebrow">Visit the shop</p>
+          <h2>Come say hi.</h2>
+          <p class="section__sub">
+            We're on the corner — you can't miss us. Stop in for a
+            recommendation, or call ahead and we'll have it ready.
+          </p>
+        </div>
+
+        <div class="visit__grid">
+          <div class="visit__block">
+            <h3>Hours</h3>
+            <ul class="hours">
+              <li><span>Monday – Thursday</span><span>10am – 9pm</span></li>
+              <li><span>Friday – Saturday</span><span>10am – 11pm</span></li>
+              <li><span>Sunday</span><span>11am – 7pm</span></li>
+            </ul>
+          </div>
+          <div class="visit__block">
+            <h3>Find us</h3>
+            <address>
+              123 Main Street<br />
+              Your Town, ST 00000
+            </address>
+            <p class="muted">On the corner of Main & Oak.</p>
+          </div>
+          <div class="visit__block" id="contact">
+            <h3>Get in touch</h3>
+            <p>
+              <a href="tel:+15555550123">(555) 555‑0123</a><br />
+              <a href="mailto:hello@cornerpantry.example">hello@cornerpantry.example</a>
+            </p>
+            <p class="muted">We try to answer within the hour during open hours.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <div class="site-footer__brand">
+          <span class="logo-mark">CP</span>
+          <span class="logo-wordmark">Corner Pantry</span>
+        </div>
+        <p class="site-footer__legal">
+          © <span id="year"></span> Corner Pantry. Please drink responsibly.
+          Must be 21+ to purchase. We card.
+        </p>
+        <a href="#top" class="site-footer__top">Back to top ↑</a>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
