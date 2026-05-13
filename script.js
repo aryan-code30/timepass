@@ -65,7 +65,9 @@
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
   const revealTargets = document.querySelectorAll(
-    ".section__head, .card, .bottle, .about__copy, .about__card, .visit__block"
+    ".section__head, .card, .bottle, .about__copy, .about__card, .visit__block, " +
+    ".event, .quote, .faq details, .gift__copy, .gift__card-art, " +
+    ".newsletter__copy, .newsletter__form, .map-card"
   );
   revealTargets.forEach((el) => el.classList.add("reveal"));
 
@@ -84,5 +86,49 @@
     revealTargets.forEach((el) => io.observe(el));
   } else {
     revealTargets.forEach((el) => el.classList.add("is-visible"));
+  }
+
+  // Newsletter signup — purely client-side for now.
+  // Replace the body of the success branch with a real fetch() to your
+  // mailing-list provider (Mailchimp, Buttondown, ConvertKit, etc.).
+  const form = document.getElementById("newsletter-form");
+  const input = document.getElementById("newsletter-email");
+  const msg = document.getElementById("newsletter-msg");
+
+  if (form && input && msg) {
+    const setMessage = (text, type) => {
+      msg.textContent = text;
+      msg.classList.remove("is-error", "is-success");
+      if (type) msg.classList.add(`is-${type}`);
+    };
+
+    const isValidEmail = (value) =>
+      /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const value = input.value.trim();
+
+      if (!value || !isValidEmail(value)) {
+        input.setAttribute("aria-invalid", "true");
+        input.focus();
+        setMessage("Please enter a valid email address.", "error");
+        return;
+      }
+
+      input.removeAttribute("aria-invalid");
+      setMessage(
+        "Thanks! Check your inbox for a confirmation email.",
+        "success"
+      );
+      form.reset();
+    });
+
+    input.addEventListener("input", () => {
+      if (input.getAttribute("aria-invalid") === "true") {
+        input.removeAttribute("aria-invalid");
+        setMessage("", null);
+      }
+    });
   }
 })();

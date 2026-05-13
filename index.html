@@ -8,6 +8,7 @@
       name="description"
       content="Corner Pantry is your neighborhood liquor store — handpicked wines, premium spirits, craft beer and mixers. Stop by, call ahead, or browse our selection."
     />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -60,7 +61,9 @@
         <nav class="nav__menu" id="primary-nav" aria-label="Primary">
           <a href="#shop">Shop</a>
           <a href="#featured">Featured</a>
+          <a href="#events">Events</a>
           <a href="#about">About</a>
+          <a href="#faq">FAQ</a>
           <a href="#visit">Visit</a>
           <a href="#contact" class="btn btn--small btn--primary">Call the store</a>
         </nav>
@@ -260,6 +263,110 @@
       </div>
     </section>
 
+    <!-- Tastings & Events -->
+    <section id="events" class="section">
+      <div class="container">
+        <header class="section__head">
+          <p class="eyebrow">Tastings & Events</p>
+          <h2>Pull up a stool with us.</h2>
+          <p class="section__sub">
+            Free, no-RSVP-needed tastings every week. Limited-seat events
+            require a quick call to reserve.
+          </p>
+        </header>
+
+        <div class="events">
+          <article class="event">
+            <div class="event__date">
+              <span class="event__month">Jun</span>
+              <span class="event__day">07</span>
+            </div>
+            <div class="event__body">
+              <p class="event__time">Friday · 5 – 8pm · Free</p>
+              <h3>Summer Rosé Walk-Around</h3>
+              <p>
+                Six rosés from southern France, Spain, and right down the
+                coast. Stop by anytime during the window.
+              </p>
+              <p class="event__tag">Wine</p>
+            </div>
+          </article>
+
+          <article class="event">
+            <div class="event__date">
+              <span class="event__month">Jun</span>
+              <span class="event__day">14</span>
+            </div>
+            <div class="event__body">
+              <p class="event__time">Friday · 6 – 8pm · $15</p>
+              <h3>Bourbon 101 with a Distiller</h3>
+              <p>
+                Five pours, one storyteller. We'll cover mash bills, barrels,
+                and the difference between "small batch" and marketing.
+              </p>
+              <p class="event__tag">Spirits · Limited 18 seats</p>
+            </div>
+          </article>
+
+          <article class="event">
+            <div class="event__date">
+              <span class="event__month">Jun</span>
+              <span class="event__day">22</span>
+            </div>
+            <div class="event__body">
+              <p class="event__time">Saturday · 2 – 5pm · Free</p>
+              <h3>Local Brewers Pop-Up</h3>
+              <p>
+                Three neighborhood breweries pour their newest cans. Meet the
+                people who actually brewed your beer.
+              </p>
+              <p class="event__tag">Craft Beer</p>
+            </div>
+          </article>
+        </div>
+
+        <p class="section__note">
+          Want to host a private tasting for your birthday or office? <a href="#contact" class="inline-link">Send us a note.</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- Gift Cards -->
+    <section class="section section--alt gift-section">
+      <div class="container gift">
+        <div class="gift__copy">
+          <p class="eyebrow">Gift cards</p>
+          <h2>The easiest "thank you" you'll ever give.</h2>
+          <p>
+            Available in any amount from $10 to $500. Mailed in a hand-written
+            card or sent instantly by email — your call.
+          </p>
+          <div class="gift__actions">
+            <a href="#contact" class="btn btn--primary">Order a gift card</a>
+            <a href="#visit" class="btn btn--ghost">Pick one up in store</a>
+          </div>
+          <ul class="gift__perks">
+            <li>No expiration</li>
+            <li>Use on anything in the store</li>
+            <li>Free hand-wrapped delivery within 2 miles</li>
+          </ul>
+        </div>
+        <aside class="gift__card-art" aria-hidden="true">
+          <div class="gift-card">
+            <div class="gift-card__top">
+              <span class="logo-mark">CP</span>
+              <span class="gift-card__label">Gift Card</span>
+            </div>
+            <div class="gift-card__amount">$100</div>
+            <div class="gift-card__bottom">
+              <span>Corner Pantry</span>
+              <span class="gift-card__chip"></span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
     <!-- About -->
     <section id="about" class="section">
       <div class="container about">
@@ -302,6 +409,149 @@
       </div>
     </section>
 
+    <!-- Testimonials -->
+    <section class="section section--alt">
+      <div class="container">
+        <header class="section__head">
+          <p class="eyebrow">From the neighborhood</p>
+          <h2>Kind words, honest customers.</h2>
+        </header>
+
+        <div class="testimonials">
+          <figure class="quote">
+            <div class="quote__stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>
+              "They picked a wine for my anniversary dinner that I'd never
+              have grabbed myself, and it was the best bottle we opened all
+              year. This is my store now."
+            </blockquote>
+            <figcaption>
+              <strong>Maya R.</strong><span>regular since 2022</span>
+            </figcaption>
+          </figure>
+
+          <figure class="quote">
+            <div class="quote__stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>
+              "Came in for one six-pack and left with two beers I'd never
+              heard of, a recommendation for a new mezcal, and a dog treat
+              for my pup. 10/10."
+            </blockquote>
+            <figcaption>
+              <strong>Devon K.</strong><span>local resident</span>
+            </figcaption>
+          </figure>
+
+          <figure class="quote">
+            <div class="quote__stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>
+              "We host a lot of parties. Corner Pantry remembers what we
+              bought last time, and they never up-sell. That's rare."
+            </blockquote>
+            <figcaption>
+              <strong>Priya & Sam</strong><span>down the block</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section">
+      <div class="container faq-wrap">
+        <header class="section__head">
+          <p class="eyebrow">FAQ</p>
+          <h2>Quick answers.</h2>
+          <p class="section__sub">
+            Don't see your question? <a href="#contact" class="inline-link">Just call us</a> — a real person picks up.
+          </p>
+        </header>
+
+        <div class="faq">
+          <details>
+            <summary>Do you deliver?</summary>
+            <p>
+              Yes — free curbside pickup at the store, and free hand-delivery
+              within 2 miles for orders over $40. Call the shop and we'll
+              have it at your door within the hour during open hours.
+            </p>
+          </details>
+
+          <details>
+            <summary>Can I special-order a specific bottle?</summary>
+            <p>
+              Almost always. If a distributor in our state carries it, we can
+              usually get it in within a week. Call or email us with what
+              you're looking for.
+            </p>
+          </details>
+
+          <details>
+            <summary>Do you do gift wrapping?</summary>
+            <p>
+              We hand-wrap bottles in kraft paper and twine at no extra
+              charge. For something fancier (ribbon, gift box, hand-written
+              card), just ask at the register.
+            </p>
+          </details>
+
+          <details>
+            <summary>Do you take returns?</summary>
+            <p>
+              State law restricts liquor returns, but if a bottle is corked,
+              flawed, or we steered you wrong, bring it back — we'll make it
+              right.
+            </p>
+          </details>
+
+          <details>
+            <summary>How do I host a private tasting?</summary>
+            <p>
+              We host private tastings in the back room for groups of 6 – 20.
+              We curate the lineup, you bring the people. Call to check
+              availability and pricing.
+            </p>
+          </details>
+
+          <details>
+            <summary>Do you sell tobacco or lottery?</summary>
+            <p>
+              We sell lottery tickets at the front register and a small
+              selection of cigars. We don't carry cigarettes.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="section newsletter-section">
+      <div class="container newsletter">
+        <div class="newsletter__copy">
+          <p class="eyebrow">Stay in the loop</p>
+          <h2>New arrivals, tastings, the good stuff.</h2>
+          <p>
+            One short email a month. New bottles we're excited about,
+            upcoming events, and the occasional regular-customer discount.
+            No spam, unsubscribe anytime.
+          </p>
+        </div>
+        <form class="newsletter__form" id="newsletter-form" novalidate>
+          <label class="visually-hidden" for="newsletter-email">Email address</label>
+          <input
+            id="newsletter-email"
+            type="email"
+            name="email"
+            placeholder="you@neighborhood.com"
+            required
+            autocomplete="email"
+          />
+          <button type="submit" class="btn btn--primary">Subscribe</button>
+          <p class="newsletter__msg" id="newsletter-msg" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
     <!-- Visit / Hours / Contact -->
     <section id="visit" class="section section--dark">
       <div class="container visit">
@@ -339,6 +589,24 @@
             </p>
             <p class="muted">We try to answer within the hour during open hours.</p>
           </div>
+        </div>
+
+        <div class="map-card">
+          <iframe
+            title="Map showing Corner Pantry location"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=-74.0080%2C40.7050%2C-73.9920%2C40.7150&amp;layer=mapnik"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen
+          ></iframe>
+          <a
+            class="map-card__link"
+            href="https://www.openstreetmap.org/?mlat=40.7100&amp;mlon=-74.0000#map=16/40.7100/-74.0000"
+            target="_blank"
+            rel="noopener"
+          >
+            Open in maps ↗
+          </a>
         </div>
       </div>
     </section>
