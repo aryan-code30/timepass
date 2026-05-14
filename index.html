@@ -118,7 +118,75 @@
         </button>
 
         <nav class="nav__menu" id="primary-nav" aria-label="Primary">
-          <a href="#shop">Shop</a>
+          <div class="nav__item nav__item--has-menu">
+            <button
+              type="button"
+              class="nav__trigger"
+              id="shop-trigger"
+              aria-expanded="false"
+              aria-controls="shop-menu"
+              aria-haspopup="true"
+            >
+              Shop
+              <svg class="nav__caret" viewBox="0 0 12 8" aria-hidden="true">
+                <path d="M1 1.5L6 6.5L11 1.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+            <div
+              class="nav__panel"
+              id="shop-menu"
+              role="menu"
+              aria-labelledby="shop-trigger"
+              hidden
+            >
+              <div class="nav__panel-grid">
+                <div class="nav__col">
+                  <p class="nav__col-label">Pantry &amp; everyday</p>
+                  <a href="#shop" data-cat="snacks" role="menuitem">
+                    <span class="nav__col-name">Snacks &amp; Candy</span>
+                    <span class="nav__col-hint">Chocolate, chips, gum, jerky</span>
+                  </a>
+                  <a href="#shop" data-cat="frozen" role="menuitem">
+                    <span class="nav__col-name">Frozen</span>
+                    <span class="nav__col-hint">Pizza, ice cream, burritos</span>
+                  </a>
+                  <a href="#shop" data-cat="pantry" role="menuitem">
+                    <span class="nav__col-name">Pantry &amp; Groceries</span>
+                    <span class="nav__col-hint">Bread, milk, eggs, pasta</span>
+                  </a>
+                  <a href="#shop" data-cat="drinks" role="menuitem">
+                    <span class="nav__col-name">Drinks &amp; Mixers</span>
+                    <span class="nav__col-hint">Soda, sparkling, coffee, tonic</span>
+                  </a>
+                </div>
+                <div class="nav__col">
+                  <p class="nav__col-label">
+                    Bottle shop
+                    <span class="age-pill">21+</span>
+                  </p>
+                  <a href="#shop" data-cat="wine" role="menuitem">
+                    <span class="nav__col-name">Wine</span>
+                    <span class="nav__col-hint">Reds, whites, rosé, bubbly</span>
+                  </a>
+                  <a href="#shop" data-cat="spirits" role="menuitem">
+                    <span class="nav__col-name">Spirits</span>
+                    <span class="nav__col-hint">Whiskey, tequila, gin, vodka</span>
+                  </a>
+                  <a href="#shop" data-cat="beer" role="menuitem">
+                    <span class="nav__col-name">Craft Beer</span>
+                    <span class="nav__col-hint">Local, IPA, lager, sour</span>
+                  </a>
+                  <a href="#shop" data-cat="cocktail" role="menuitem">
+                    <span class="nav__col-name">Cocktail Aisle</span>
+                    <span class="nav__col-hint">Tonic, bitters, ice, glassware</span>
+                  </a>
+                </div>
+              </div>
+              <a class="nav__panel-all" href="#shop" data-cat="all" role="menuitem">
+                View everything <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
           <a href="#delivery">Delivery</a>
           <a href="#rewards">Rewards</a>
           <a href="#events">Events</a>
@@ -157,183 +225,73 @@
       </div>
     </section>
 
-    <!-- Categories -->
+    <!-- Shop -->
     <section id="shop" class="section">
       <div class="container">
         <header class="section__head">
           <p class="eyebrow">Shop by aisle</p>
-          <h2>Everything you actually need.</h2>
+          <h2>Browse the shelves.</h2>
           <p class="section__sub">
-            Snacks, frozen, groceries, and a serious shelf of wine, beer,
-            and spirits — all in one corner.
+            A snapshot of what's in store. Selection rotates — call
+            <a class="inline-link" href="tel:+16307520631">(630) 752‑0631</a>
+            to confirm a specific item before you swing by.
           </p>
         </header>
 
-        <div class="card-group">
-          <p class="card-group__label">Pantry &amp; everyday</p>
-          <div class="cards">
-            <article class="card">
-              <div class="card__icon" aria-hidden="true">
-                <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="14" y="20" width="36" height="28" rx="3" />
-                  <path d="M22 20v-4a4 4 0 0 1 4-4h12a4 4 0 0 1 4 4v4" />
-                  <path d="M14 32h36" />
-                </svg>
-              </div>
-              <h3>Snacks &amp; Candy</h3>
-              <p>
-                Chocolates, chips, gum, jerky, energy bars — the
-                everything aisle. Plus the candy you can't find at the
-                grocery store.
-              </p>
-              <ul class="card__tags">
-                <li>Chocolate</li><li>Chips</li><li>Gum</li><li>Jerky</li>
-              </ul>
-            </article>
-
-            <article class="card">
-              <div class="card__icon" aria-hidden="true">
-                <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M32 6v52" />
-                  <path d="M12 18l40 28" />
-                  <path d="M52 18L12 46" />
-                  <circle cx="32" cy="32" r="3" />
-                </svg>
-              </div>
-              <h3>Frozen</h3>
-              <p>
-                Frozen pizza, ice cream by the pint or half-gallon,
-                burritos, breakfast sandwiches — late-night dinner
-                solved.
-              </p>
-              <ul class="card__tags">
-                <li>Pizza</li><li>Ice Cream</li><li>Burritos</li><li>Breakfast</li>
-              </ul>
-            </article>
-
-            <article class="card">
-              <div class="card__icon" aria-hidden="true">
-                <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M10 22h44l-4 28a4 4 0 0 1-4 4H18a4 4 0 0 1-4-4z" />
-                  <path d="M22 22l4-10h12l4 10" />
-                  <path d="M24 32v14" />
-                  <path d="M32 32v14" />
-                  <path d="M40 32v14" />
-                </svg>
-              </div>
-              <h3>Pantry &amp; Groceries</h3>
-              <p>
-                Bread, eggs, milk, pasta, sauces, cereal, the basics
-                you ran out of at 10pm. We probably have it.
-              </p>
-              <ul class="card__tags">
-                <li>Dairy</li><li>Bread</li><li>Pasta</li><li>Sauces</li>
-              </ul>
-            </article>
-
-            <article class="card">
-              <div class="card__icon" aria-hidden="true">
-                <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M22 8h20l-2 8H24z" />
-                  <path d="M24 16h16v36a4 4 0 0 1-4 4h-8a4 4 0 0 1-4-4z" />
-                  <path d="M24 28h16" />
-                </svg>
-              </div>
-              <h3>Drinks &amp; Mixers</h3>
-              <p>
-                Soda, sparkling water, juice, energy drinks, hot
-                coffee, plus tonics, bitters, and the basics for
-                cocktail night.
-              </p>
-              <ul class="card__tags">
-                <li>Soda</li><li>Sparkling</li><li>Coffee</li><li>Tonic</li>
-              </ul>
-            </article>
+        <div class="shop-toolbar">
+          <div class="shop-filters" role="tablist" aria-label="Filter products by category">
+            <button class="filter-pill is-active" type="button" role="tab" aria-selected="true" data-cat="all">
+              <span class="filter-pill__name">All</span>
+              <span class="filter-pill__count" data-count-for="all">0</span>
+            </button>
+            <span class="shop-filters__divider" aria-hidden="true"></span>
+            <button class="filter-pill" type="button" role="tab" aria-selected="false" data-cat="snacks">
+              <span class="filter-pill__name">Snacks &amp; Candy</span>
+              <span class="filter-pill__count" data-count-for="snacks">0</span>
+            </button>
+            <button class="filter-pill" type="button" role="tab" aria-selected="false" data-cat="frozen">
+              <span class="filter-pill__name">Frozen</span>
+              <span class="filter-pill__count" data-count-for="frozen">0</span>
+            </button>
+            <button class="filter-pill" type="button" role="tab" aria-selected="false" data-cat="pantry">
+              <span class="filter-pill__name">Pantry &amp; Groceries</span>
+              <span class="filter-pill__count" data-count-for="pantry">0</span>
+            </button>
+            <button class="filter-pill" type="button" role="tab" aria-selected="false" data-cat="drinks">
+              <span class="filter-pill__name">Drinks &amp; Mixers</span>
+              <span class="filter-pill__count" data-count-for="drinks">0</span>
+            </button>
+            <span class="shop-filters__divider" aria-hidden="true"></span>
+            <button class="filter-pill filter-pill--age" type="button" role="tab" aria-selected="false" data-cat="wine">
+              <span class="filter-pill__name">Wine</span>
+              <span class="filter-pill__count" data-count-for="wine">0</span>
+              <span class="age-pill age-pill--xs">21+</span>
+            </button>
+            <button class="filter-pill filter-pill--age" type="button" role="tab" aria-selected="false" data-cat="spirits">
+              <span class="filter-pill__name">Spirits</span>
+              <span class="filter-pill__count" data-count-for="spirits">0</span>
+              <span class="age-pill age-pill--xs">21+</span>
+            </button>
+            <button class="filter-pill filter-pill--age" type="button" role="tab" aria-selected="false" data-cat="beer">
+              <span class="filter-pill__name">Craft Beer</span>
+              <span class="filter-pill__count" data-count-for="beer">0</span>
+              <span class="age-pill age-pill--xs">21+</span>
+            </button>
+            <button class="filter-pill filter-pill--age" type="button" role="tab" aria-selected="false" data-cat="cocktail">
+              <span class="filter-pill__name">Cocktail Aisle</span>
+              <span class="filter-pill__count" data-count-for="cocktail">0</span>
+              <span class="age-pill age-pill--xs">21+</span>
+            </button>
           </div>
+          <p class="shop-status" id="shop-status" aria-live="polite">Showing all items.</p>
         </div>
 
-        <div class="card-group">
-          <p class="card-group__label">
-            Bottle shop
-            <span class="age-pill" title="Must be 21+ to purchase alcohol">21+</span>
-          </p>
-          <div class="cards">
-            <article class="card">
-              <div class="card__icon" aria-hidden="true">
-                <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M24 6h16v14c0 6-4 10-8 12v22h6" />
-                  <path d="M24 6v14c0 6 4 10 8 12" />
-                  <path d="M22 54h20" />
-                </svg>
-              </div>
-              <h3>Wine</h3>
-              <p>
-                Reds, whites, rosé and bubbly — from everyday pours to
-                special-occasion bottles. Ask us for a pairing.
-              </p>
-              <ul class="card__tags">
-                <li>Cabernet</li><li>Pinot</li><li>Champagne</li><li>Natural</li>
-              </ul>
-            </article>
+        <div class="product-grid" id="product-grid"></div>
 
-            <article class="card">
-              <div class="card__icon" aria-hidden="true">
-                <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M26 6h12v8l4 8v32H22V22l4-8z" />
-                  <path d="M22 30h20" />
-                </svg>
-              </div>
-              <h3>Spirits</h3>
-              <p>
-                Whiskey, bourbon, tequila, gin, vodka, rum — small-batch
-                favorites and the classics, all in stock.
-              </p>
-              <ul class="card__tags">
-                <li>Bourbon</li><li>Single Malt</li><li>Mezcal</li><li>Gin</li>
-              </ul>
-            </article>
-
-            <article class="card">
-              <div class="card__icon" aria-hidden="true">
-                <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M20 10h20v6l4 4v30c0 2-2 4-4 4H20c-2 0-4-2-4-4V20l4-4z" />
-                  <path d="M20 22h20" />
-                  <path d="M26 30v18" />
-                  <path d="M34 30v18" />
-                </svg>
-              </div>
-              <h3>Craft Beer</h3>
-              <p>
-                Build-your-own six-packs, local breweries, sours, lagers,
-                hazies — kept ice cold and rotated weekly.
-              </p>
-              <ul class="card__tags">
-                <li>Local</li><li>IPA</li><li>Lager</li><li>Sour</li>
-              </ul>
-            </article>
-
-            <article class="card">
-              <div class="card__icon" aria-hidden="true">
-                <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M14 12h36l-4 12H18z" />
-                  <path d="M22 24l4 28h12l4-28" />
-                  <path d="M32 38v10" />
-                </svg>
-              </div>
-              <h3>Cocktail Aisle</h3>
-              <p>
-                Premium tonics, bitters, fresh citrus, ice, glassware,
-                and everything you need for cocktail night.
-              </p>
-              <ul class="card__tags">
-                <li>Tonic</li><li>Bitters</li><li>Garnish</li><li>Ice</li>
-              </ul>
-            </article>
-          </div>
-          <p class="card-group__legal muted">
-            Must be 21+ to purchase alcohol. We ID at the register.
-          </p>
-        </div>
+        <p class="product-grid__legal muted">
+          Bottle Shop items require 21+ ID at the register or delivery.
+          Prices and stock are approximate and rotate often.
+        </p>
       </div>
     </section>
 

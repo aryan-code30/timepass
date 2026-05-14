@@ -10,10 +10,11 @@ Static HTML/CSS/JS — no build step, no dependencies.
 
 **HTML / CSS / JS**
 - `index.html` — full site markup. Sections, in order:
-  - Sticky nav, hero (with photo background)
-  - Shop by aisle — two groups:
-    - **Pantry & everyday**: Snacks & Candy, Frozen, Pantry & Groceries, Drinks & Mixers
-    - **Bottle shop** (21+): Wine, Spirits, Craft Beer, Cocktail Aisle
+  - Sticky nav with **Shop dropdown mega-menu**
+    (two columns: Pantry & everyday / Bottle shop)
+  - Hero (with photo background)
+  - **Shop browser** — filter pills + product grid (52 items across
+    8 categories, dynamically rendered and filterable)
   - Delivery (DoorDash, Grubhub, Seamless, order.online)
   - Featured bottles ("This week's picks", 21+)
   - Tastings & Events
@@ -27,9 +28,11 @@ Static HTML/CSS/JS — no build step, no dependencies.
 - `styles.css` — warm dark "cellar" palette with burnished amber accents,
   Cormorant Garamond + Inter typography, responsive grids, mobile nav,
   `prefers-reduced-motion` aware.
-- `script.js` — mobile nav, scroll reveal, footer year, newsletter form
-  validation, and the **Rewards** client (sign-up, balance, tier
-  progress, sign-out).
+- `script.js` — mobile nav, scroll reveal, footer year, newsletter
+  form validation, the **Shop browser** (Shop dropdown mega-menu open
+  /close + outside-click + Escape handling; product catalog data;
+  filter pills with live counts and status line), and the **Rewards**
+  client (sign-up, balance, tier progress, sign-out).
 
 **Brand assets**
 - `favicon.svg` — vector favicon (CP monogram in amber on dark)
@@ -144,6 +147,70 @@ Open `index.html` and update:
 
 The color theme lives at the top of `styles.css` under `:root` — change
 `--amber`, `--wine`, etc. to retheme the whole site.
+
+## Shop browser — how it works
+
+The Shop section renders products from a `PRODUCTS` array in
+`script.js`. The site ships with **52 sample items** across 8
+categories (chosen to look believable for a corner store with a
+serious bottle shelf).
+
+### Categories
+
+| Key | Label | 21+ |
+| --- | ----- | --- |
+| `snacks`   | Snacks & Candy      | — |
+| `frozen`   | Frozen              | — |
+| `pantry`   | Pantry & Groceries  | — |
+| `drinks`   | Drinks & Mixers     | — |
+| `wine`     | Wine                | Yes |
+| `spirits`  | Spirits             | Yes |
+| `beer`     | Craft Beer          | Yes |
+| `cocktail` | Cocktail Aisle      | Yes |
+
+Each category has its own color tone for the product card art (see
+`CATEGORIES` in `script.js`). Age-restricted categories automatically
+get a 21+ pill on every product card.
+
+### Editing the catalog
+
+Open `script.js`, find the `PRODUCTS` constant, and add / remove /
+edit objects:
+
+```js
+{ cat: "snacks", name: "Hershey's Milk Chocolate", size: "1.55 oz", price: "$2.49", desc: "The classic." },
+```
+
+The filter pill counts, dropdown menu, and product grid all update
+automatically — there is nothing else to change.
+
+### Wiring to a real inventory feed
+
+The `PRODUCTS` array is a swap point. To pull from a live source
+(POS export, Google Sheet, CSV, or backend API), replace the
+hard-coded `const PRODUCTS = [...]` with an async load:
+
+```js
+const PRODUCTS = await fetch("/api/products").then((r) => r.json());
+```
+
+…or a CSV / Google-Sheet fetch + parse. The rendering pipeline
+(`renderProducts()`, `updateCounts()`, `applyFilter()`) doesn't
+need any other changes.
+
+### Shop dropdown mega-menu
+
+Clicking **Shop** in the nav opens a two-column panel:
+
+- **Pantry & everyday** — Snacks / Frozen / Pantry / Drinks
+- **Bottle shop** (with a 21+ pill) — Wine / Spirits / Beer / Cocktail
+
+Each link selects that filter and smooth-scrolls to the Shop section.
+The dropdown closes on outside click, on Escape, and after a
+selection. Fully keyboard accessible.
+
+On mobile, the dropdown becomes an inline accordion inside the
+hamburger drawer (no overflow issues).
 
 ## Corner Pantry Rewards — how it works
 
