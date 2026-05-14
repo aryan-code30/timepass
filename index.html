@@ -3,26 +3,106 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Corner Pantry — Fine Wines, Spirits & Craft Beer</title>
+    <meta name="theme-color" content="#0e0b09" />
+    <title>Corner Pantry — Neighborhood Wine, Spirits & Craft Beer</title>
     <meta
       name="description"
-      content="Corner Pantry is your neighborhood liquor store — handpicked wines, premium spirits, craft beer and mixers. Stop by, call ahead, or browse our selection."
+      content="Corner Pantry is your neighborhood liquor store — handpicked wines, premium spirits, craft beer and mixers. Free curbside pickup, gift wrapping, and weekly tastings."
     />
+    <meta name="keywords" content="liquor store, wine shop, craft beer, bourbon, whiskey, tequila, gift cards, wine tasting, Corner Pantry" />
+    <link rel="canonical" href="https://www.cornerpantry.example/" />
+
+    <!-- Icons & manifest -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="icon" type="image/png" sizes="192x192" href="img/logo-192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="img/logo-512.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png" />
+    <link rel="manifest" href="site.webmanifest" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Corner Pantry" />
+    <meta property="og:title" content="Corner Pantry — Neighborhood Wine, Spirits & Craft Beer" />
+    <meta property="og:description" content="Handpicked wines, premium spirits, craft beer and mixers. Family-run on the corner. Free curbside pickup and weekly tastings." />
+    <meta property="og:url" content="https://www.cornerpantry.example/" />
+    <meta property="og:image" content="https://www.cornerpantry.example/img/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="A bottle and a stemmed glass — Corner Pantry" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Corner Pantry — Neighborhood Wine, Spirits & Craft Beer" />
+    <meta name="twitter:description" content="Handpicked wines, premium spirits, craft beer and mixers. Family-run on the corner." />
+    <meta name="twitter:image" content="https://www.cornerpantry.example/img/og-image.jpg" />
+
+    <!-- Fonts & styles -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="preload" as="image" href="img/hero-bg.jpg" fetchpriority="high" />
     <link rel="stylesheet" href="styles.css" />
+
+    <!-- LocalBusiness structured data for search engines -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LiquorStore",
+      "name": "Corner Pantry",
+      "image": "https://www.cornerpantry.example/img/og-image.jpg",
+      "logo": "https://www.cornerpantry.example/img/logo-512.png",
+      "url": "https://www.cornerpantry.example/",
+      "telephone": "+1-555-555-0123",
+      "email": "hello@cornerpantry.example",
+      "priceRange": "$$",
+      "description": "Family-run neighborhood liquor store featuring handpicked wines, premium spirits, craft beer and mixers.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "123 Main Street",
+        "addressLocality": "Your Town",
+        "addressRegion": "ST",
+        "postalCode": "00000",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 40.7100,
+        "longitude": -74.0000
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
+          "opens": "10:00",
+          "closes": "21:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Friday", "Saturday"],
+          "opens": "10:00",
+          "closes": "23:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Sunday",
+          "opens": "11:00",
+          "closes": "19:00"
+        }
+      ],
+      "sameAs": []
+    }
+    </script>
   </head>
   <body>
     <!-- Age verification gate -->
     <div id="age-gate" class="age-gate" role="dialog" aria-modal="true" aria-labelledby="age-gate-title">
       <div class="age-gate__card">
         <div class="age-gate__brand">
-          <span class="logo-mark">CP</span>
+          <img class="logo-mark logo-mark--img" src="img/logo-mark.png" alt="" width="44" height="44" />
           <span class="logo-wordmark">Corner Pantry</span>
         </div>
         <h2 id="age-gate-title">Are you 21 or older?</h2>
@@ -44,7 +124,7 @@
     <header class="site-header" id="top">
       <div class="container nav">
         <a href="#top" class="nav__brand" aria-label="Corner Pantry home">
-          <span class="logo-mark">CP</span>
+          <img class="logo-mark logo-mark--img" src="img/logo-mark.png" alt="" width="40" height="40" />
           <span class="logo-wordmark">Corner Pantry</span>
         </a>
 
@@ -615,7 +695,7 @@
     <footer class="site-footer">
       <div class="container site-footer__inner">
         <div class="site-footer__brand">
-          <span class="logo-mark">CP</span>
+          <img class="logo-mark logo-mark--img" src="img/logo-mark.png" alt="" width="36" height="36" />
           <span class="logo-wordmark">Corner Pantry</span>
         </div>
         <p class="site-footer__legal">

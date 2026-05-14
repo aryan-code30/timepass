@@ -1,0 +1,25 @@
+# Netlify configuration for Corner Pantry (static site).
+# Drag this folder into https://app.netlify.com/drop or connect the Git repo.
+
+[build]
+  publish = "."
+
+# Sensible default headers for a public static site.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# Cache fingerprinted assets aggressively. Edit when you add a build step.
+[[headers]]
+  for = "/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/favicon.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
