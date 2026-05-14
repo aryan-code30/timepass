@@ -334,6 +334,39 @@ p { margin: 0 0 1em; }
 
 /* ---------- Category cards ---------- */
 
+.card-group + .card-group { margin-top: 56px; }
+
+.card-group__label {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.4rem;
+  color: var(--ink);
+  margin: 0 0 18px;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.card-group__legal {
+  margin-top: 18px;
+  text-align: right;
+  font-size: 0.85rem;
+}
+
+.age-pill {
+  display: inline-grid;
+  place-items: center;
+  font-family: "Inter", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--amber);
+  border: 1px solid rgba(214, 168, 90, 0.5);
+  border-radius: 999px;
+  padding: 3px 10px;
+  background: rgba(214, 168, 90, 0.08);
+}
+
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -594,57 +627,6 @@ p { margin: 0 0 1em; }
 .site-footer__legal { color: var(--ink-soft); font-size: 0.85rem; margin: 0; }
 .site-footer__top { color: var(--amber); font-size: 0.85rem; }
 .site-footer__top:hover { text-decoration: underline; }
-
-/* ---------- Age Gate ---------- */
-
-.age-gate {
-  position: fixed;
-  inset: 0;
-  z-index: 100;
-  background: rgba(8, 6, 5, 0.92);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  display: grid;
-  place-items: center;
-  padding: 24px;
-  opacity: 1;
-  transition: opacity 0.35s ease;
-}
-.age-gate[hidden] { display: none; }
-.age-gate.is-leaving { opacity: 0; pointer-events: none; }
-
-.age-gate__card {
-  width: 100%;
-  max-width: 440px;
-  background: linear-gradient(180deg, #1a1410 0%, #110d0a 100%);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 36px 32px 28px;
-  text-align: center;
-  box-shadow: var(--shadow-lg);
-}
-.age-gate__brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 18px;
-}
-.age-gate h2 {
-  margin-bottom: 12px;
-}
-.age-gate p { color: var(--ink-dim); font-size: 0.95rem; }
-.age-gate__actions {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  margin: 22px 0 14px;
-  flex-wrap: wrap;
-}
-.age-gate__legal {
-  color: var(--ink-soft);
-  font-size: 0.8rem;
-  margin: 0;
-}
 
 /* ---------- Mobile ---------- */
 

@@ -1,17 +1,21 @@
 # Corner Pantry — Website
 
-A single-page marketing website for **Corner Pantry**, a neighborhood liquor store.
+A single-page marketing website for **Corner Pantry**, a family-run
+neighborhood corner store in Carol Stream, IL. Snacks, frozen, groceries,
+plus wine, spirits, and craft beer.
+
 Static HTML/CSS/JS — no build step, no dependencies.
 
 ## What's inside
 
 **HTML / CSS / JS**
 - `index.html` — full site markup. Sections, in order:
-  - Age verification modal (21+)
   - Sticky nav, hero (with photo background)
-  - Shop by category (Wine / Spirits / Craft Beer / Mixers)
+  - Shop by aisle — two groups:
+    - **Pantry & everyday**: Snacks & Candy, Frozen, Pantry & Groceries, Drinks & Mixers
+    - **Bottle shop** (21+): Wine, Spirits, Craft Beer, Cocktail Aisle
   - Delivery (DoorDash, Grubhub, Seamless, order.online)
-  - Featured bottles ("This week's picks")
+  - Featured bottles ("This week's picks", 21+)
   - Tastings & Events
   - **Corner Pantry Rewards** — sign-up + balance card + redemption tiers
   - About + stats
@@ -19,13 +23,13 @@ Static HTML/CSS/JS — no build step, no dependencies.
   - FAQ accordion (native `<details>`)
   - Newsletter signup
   - Visit (hours, address, contact) + embedded map with Google Maps link
-  - Footer
+  - Footer (with 21+ alcohol notice)
 - `styles.css` — warm dark "cellar" palette with burnished amber accents,
   Cormorant Garamond + Inter typography, responsive grids, mobile nav,
   `prefers-reduced-motion` aware.
-- `script.js` — age-gate (session-scoped), mobile nav, scroll reveal,
-  footer year, newsletter form validation, and the **Rewards** client
-  (sign-up, balance, tier progress, sign-out).
+- `script.js` — mobile nav, scroll reveal, footer year, newsletter form
+  validation, and the **Rewards** client (sign-up, balance, tier
+  progress, sign-out).
 
 **Brand assets**
 - `favicon.svg` — vector favicon (CP monogram in amber on dark)
@@ -188,9 +192,17 @@ and tier ladder don't need to change.
 
 ## Notes
 
-- The age-gate is session-scoped (clears when the browser tab closes). It
-  is a UX/compliance pattern, not a legal substitute for ID at the register.
-- "No, exit" sends visitors to a responsible-drinking resource.
+- **No age gate on the front page.** Corner Pantry sells groceries,
+  snacks, frozen, and other items that customers of any age can buy.
+  Alcohol is one category among many, so we don't block the site with
+  a 21+ modal. Instead:
+  - The Bottle Shop category group is labeled with a "21+" pill and a
+    "Must be 21+ to purchase alcohol. We ID at the register." line.
+  - The Featured Bottles section eyebrow shows the same "21+" pill.
+  - The footer carries the legal "Must be 21+ to purchase alcohol. We
+    card." notice on every page view.
+  - IDs are checked at the register / on delivery, which is where
+    age verification legally happens anyway.
 - The Rewards card is stored in `localStorage` (not a cookie) and never
   leaves the customer's device — until you wire it up to a backend.
 - The site is fully responsive and respects `prefers-reduced-motion`.

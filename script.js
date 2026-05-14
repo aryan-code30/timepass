@@ -1,47 +1,6 @@
 (() => {
   "use strict";
 
-  const STORAGE_KEY = "cp-age-verified";
-
-  const ageGate = document.getElementById("age-gate");
-  const ageYes = document.getElementById("age-yes");
-  const ageNo = document.getElementById("age-no");
-
-  const showGate = () => {
-    if (!ageGate) return;
-    ageGate.hidden = false;
-    document.body.style.overflow = "hidden";
-  };
-
-  const hideGate = () => {
-    if (!ageGate) return;
-    ageGate.classList.add("is-leaving");
-    document.body.style.overflow = "";
-    setTimeout(() => {
-      ageGate.hidden = true;
-      ageGate.classList.remove("is-leaving");
-    }, 380);
-  };
-
-  try {
-    if (sessionStorage.getItem(STORAGE_KEY) === "yes") {
-      ageGate.hidden = true;
-    } else {
-      showGate();
-    }
-  } catch {
-    showGate();
-  }
-
-  ageYes?.addEventListener("click", () => {
-    try { sessionStorage.setItem(STORAGE_KEY, "yes"); } catch {}
-    hideGate();
-  });
-
-  ageNo?.addEventListener("click", () => {
-    window.location.href = "https://www.responsibility.org/";
-  });
-
   const navToggle = document.getElementById("nav-toggle");
   const navMenu = document.getElementById("primary-nav");
 
