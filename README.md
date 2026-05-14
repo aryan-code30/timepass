@@ -10,6 +10,7 @@ Static HTML/CSS/JS — no build step, no dependencies.
   - Age verification modal (21+)
   - Sticky nav, hero (with photo background)
   - Shop by category (Wine / Spirits / Craft Beer / Mixers)
+  - Delivery (DoorDash, Grubhub, Seamless, order.online)
   - Featured bottles ("This week's picks")
   - Tastings & Events
   - Gift cards (with CSS-drawn gift card art)
@@ -17,7 +18,7 @@ Static HTML/CSS/JS — no build step, no dependencies.
   - Customer testimonials
   - FAQ accordion (native `<details>`)
   - Newsletter signup
-  - Visit (hours, address, contact) + embedded OpenStreetMap
+  - Visit (hours, address, contact) + embedded map with Google Maps link
   - Footer
 - `styles.css` — warm dark "cellar" palette with burnished amber accents,
   Cormorant Garamond + Inter typography, responsive grids, mobile nav,
@@ -90,37 +91,51 @@ After your site is up on any of the above, point your domain (or
 subdomain like `www.cornerpantry.com`) at it via the host's DNS
 instructions. Then come back and update the placeholder URLs (see below).
 
-## What to customize before launch
+## Real business details (wired in)
+
+The site is already configured with the real Corner Pantry info:
+
+- **Name:** Corner Pantry (a.k.a. Patel Corner Pantry)
+- **Address:** 331 S Schmale Rd, Carol Stream, IL 60188
+- **Phone:** (630) 752‑0631
+- **Hours:** Daily, 7am – 12:30am
+- **Google Maps:** https://share.google/ACtTM17oWck8ZRb4S
+- **Delivery:** DoorDash, Grubhub, Seamless, order.online
+
+## Still to customize before launch
 
 Open `index.html` and update:
 
-- **Site URL** — search for `https://www.cornerpantry.example/` and replace
-  with your real domain (appears in meta tags, JSON-LD, sitemap, robots).
-- **Phone & email** — `(555) 555‑0123` and `hello@cornerpantry.example`.
-- **Address & geo** — `123 Main Street` and the `latitude` / `longitude`
-  in the JSON-LD block.
-- **Hours** — in the visible `#visit` section *and* in the JSON-LD
-  `openingHoursSpecification` block.
+- **Site URL** — search for `https://www.cornerpantry.example/` and
+  replace with your real domain everywhere it appears (meta tags, JSON-LD,
+  sitemap, robots). Do the same in `sitemap.xml` and `robots.txt`.
+- **Email address** — there's currently no email on the site (we removed
+  the placeholder). If you want one, add it back to the `#contact` block
+  and to the JSON-LD as `"email": "..."`.
+- **Geo coordinates** — the JSON-LD uses approximate Schmale Rd coords
+  (41.8934, -88.1037). If you want building-exact precision, replace
+  with the real lat/long.
+- **Delivery URLs** — the four tiles in `#delivery` currently link to
+  each platform's search results for "Corner Pantry Carol Stream". Once
+  you know the direct merchant URLs (e.g. your specific DoorDash store
+  page), swap them in.
 - **Social profiles** — add Instagram / Facebook / etc. URLs to the
   `sameAs` array in the JSON-LD block (helps Google connect them).
 - **Featured bottles** — under `<!-- Featured Picks -->`, swap titles,
-  descriptions, and prices.
+  descriptions, and prices for what's actually on your shelves.
 - **About copy & stats** — `#about`.
-- **Events** — `#events`, edit the month/day blocks and event details.
-- **Testimonials** — swap the three `<figure class="quote">` blocks.
+- **Events** — `#events`, edit the month/day blocks and event details
+  (or delete the section if you don't run events).
+- **Testimonials** — swap the three `<figure class="quote">` blocks for
+  real customer quotes from your Google reviews.
 - **FAQ** — `#faq`, add/remove `<details>` blocks. They work without JS.
-- **Map** — the iframe in `.map-card` currently points to a generic NYC
-  bounding box on OpenStreetMap. Update the `src` URL's `bbox` (and the
-  "Open in maps" link) with your real coordinates, or swap for a Google
-  Maps embed.
 - **Newsletter** — the submit handler in `script.js` is client-side only.
   To actually collect emails, replace the success branch with a `fetch()`
-  POST to your provider (Mailchimp, Buttondown, ConvertKit, etc.).
+  POST to your provider (Mailchimp, Buttondown, ConvertKit, etc.) — or
+  remove the newsletter section entirely if you don't want it.
 - **Brand assets** — to use your own logo, replace
   `img/logo-mark.png`, `img/logo-512.png`, `img/logo-192.png`,
   `img/apple-touch-icon.png`, `img/og-image.jpg`, and `favicon.svg`.
-
-Also update `sitemap.xml` and `robots.txt` to use your real domain.
 
 The color theme lives at the top of `styles.css` under `:root` — change
 `--amber`, `--wine`, etc. to retheme the whole site.

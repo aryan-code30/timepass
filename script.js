@@ -67,7 +67,7 @@
   const revealTargets = document.querySelectorAll(
     ".section__head, .card, .bottle, .about__copy, .about__card, .visit__block, " +
     ".event, .quote, .faq details, .gift__copy, .gift__card-art, " +
-    ".newsletter__copy, .newsletter__form, .map-card"
+    ".newsletter__copy, .newsletter__form, .map-card, .delivery-tile"
   );
   revealTargets.forEach((el) => el.classList.add("reveal"));
 
