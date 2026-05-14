@@ -805,123 +805,259 @@ p { margin: 0 0 1em; }
 }
 .inline-link:hover { color: var(--amber-soft); border-bottom-color: var(--amber-soft); }
 
-/* ---------- Gift cards ---------- */
+/* ---------- Rewards ---------- */
 
-.gift-section { overflow: hidden; }
-.gift {
+.rewards {
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 56px;
-  align-items: center;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: stretch;
 }
-.gift__copy p { color: var(--ink-dim); }
-.gift__actions {
+
+.rewards__card-wrap { display: grid; }
+
+.rewards__card {
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.rewards__tag {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--amber);
+  border: 1px solid rgba(214, 168, 90, 0.4);
+  padding: 3px 10px;
+  border-radius: 999px;
+  margin: 0;
+}
+
+.rewards__card h3 { margin: 0; }
+.rewards__hint { color: var(--ink-dim); font-size: 0.95rem; margin: 0; }
+
+.rewards__form {
+  display: grid;
+  gap: 10px;
+  margin-top: 6px;
+}
+.rewards__form input {
+  appearance: none;
+  background: var(--bg-3);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  font: inherit;
+  padding: 14px 18px;
+  border-radius: 999px;
+  width: 100%;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+.rewards__form input::placeholder { color: var(--ink-soft); }
+.rewards__form input:focus {
+  outline: none;
+  border-color: var(--amber);
+  background: rgba(214, 168, 90, 0.06);
+}
+.rewards__form input[aria-invalid="true"] { border-color: #c95a5a; }
+.rewards__form .btn { margin-top: 4px; }
+
+.rewards__msg {
+  margin: 0;
+  font-size: 0.85rem;
+  min-height: 1.1em;
+  color: var(--ink-dim);
+}
+.rewards__msg.is-error { color: #ed8a8a; }
+.rewards__msg.is-success { color: var(--amber-soft); }
+
+.rewards__welcome {
+  margin: 8px 0 0;
+  padding: 12px 14px;
+  background: rgba(214, 168, 90, 0.08);
+  border: 1px dashed rgba(214, 168, 90, 0.4);
+  border-radius: 10px;
+  color: var(--ink-dim);
+  font-size: 0.9rem;
+  text-align: center;
+}
+.rewards__welcome strong { color: var(--amber); }
+
+.rewards__progress-text { color: var(--ink-dim); font-size: 0.95rem; margin: 4px 0 0; }
+.rewards__progress-text strong { color: var(--amber-soft); }
+
+#rewards-progress {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  height: 8px;
+  border: 0;
+  background: var(--bg-3);
+  border-radius: 999px;
+  overflow: hidden;
+}
+#rewards-progress::-webkit-progress-bar { background: var(--bg-3); border-radius: 999px; }
+#rewards-progress::-webkit-progress-value {
+  background: linear-gradient(90deg, var(--amber-2), var(--amber-soft));
+  border-radius: 999px;
+  transition: width 0.4s ease;
+}
+#rewards-progress::-moz-progress-bar {
+  background: linear-gradient(90deg, var(--amber-2), var(--amber-soft));
+  border-radius: 999px;
+}
+
+.rewards__actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
-  margin: 22px 0 18px;
-}
-.gift__perks {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  gap: 8px;
-}
-.gift__perks li {
-  color: var(--ink-dim);
-  font-size: 0.95rem;
-  padding-left: 22px;
-  position: relative;
-}
-.gift__perks li::before {
-  content: "✓";
-  color: var(--amber);
-  position: absolute;
-  left: 0;
-  top: 0;
-  font-weight: 700;
+  gap: 10px;
+  margin-top: 6px;
 }
 
-.gift__card-art {
-  display: grid;
-  place-items: center;
-  perspective: 1000px;
-}
-.gift-card {
+/* Rewards card artwork (member view) */
+.rewards-card-art {
   width: 100%;
-  max-width: 340px;
   aspect-ratio: 1.586 / 1;
   background:
     radial-gradient(60% 80% at 20% 20%, rgba(244, 217, 154, 0.25), transparent 60%),
     linear-gradient(135deg, #b8853a 0%, #d6a85a 45%, #8a5e22 100%);
-  border-radius: 16px;
-  padding: 22px;
+  border-radius: 14px;
+  padding: 20px 22px;
   display: grid;
   grid-template-rows: auto 1fr auto;
   color: #1a120a;
   box-shadow:
-    0 30px 60px -20px rgba(0, 0, 0, 0.6),
+    0 20px 50px -20px rgba(0, 0, 0, 0.6),
     inset 0 1px 0 rgba(255, 255, 255, 0.25);
-  transform: rotate(-4deg);
   position: relative;
   overflow: hidden;
 }
-.gift-card::after {
+.rewards-card-art::after {
   content: "";
   position: absolute;
   inset: 0;
-  background:
-    repeating-linear-gradient(135deg, rgba(255,255,255,0.06) 0 2px, transparent 2px 6px);
+  background: repeating-linear-gradient(135deg, rgba(255,255,255,0.06) 0 2px, transparent 2px 6px);
   pointer-events: none;
 }
-.gift-card__top {
+.rewards-card-art__top {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 10px;
+  position: relative;
+  z-index: 1;
 }
-.gift-card__top .logo-mark {
-  border-color: rgba(26, 18, 10, 0.7);
-  color: #1a120a;
+.rewards-card-art__top .logo-mark--img {
+  background: rgba(26, 18, 10, 0.15);
+  border-radius: 8px;
 }
-.gift-card__label {
+.rewards-card-art__label {
   font-family: "Cormorant Garamond", serif;
-  font-size: 1.1rem;
-  letter-spacing: 0.08em;
+  font-size: 0.95rem;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
 }
-.gift-card__amount {
+.rewards-card-art__points {
   font-family: "Cormorant Garamond", serif;
-  font-size: clamp(2.4rem, 6vw, 3.4rem);
   align-self: end;
   line-height: 1;
   font-weight: 700;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  position: relative;
+  z-index: 1;
 }
-.gift-card__bottom {
+.rewards-card-art__points span:first-child {
+  font-size: clamp(2.8rem, 7vw, 4rem);
+}
+.rewards-card-art__pts {
+  font-size: 1rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.rewards-card-art__bottom {
   display: flex;
   align-items: center;
   justify-content: space-between;
   font-family: "Cormorant Garamond", serif;
-  font-size: 1.05rem;
+  font-size: 1rem;
   letter-spacing: 0.04em;
+  position: relative;
+  z-index: 1;
 }
-.gift-card__chip {
+.rewards-card-art__chip {
   display: inline-block;
-  width: 36px;
-  height: 26px;
-  border-radius: 5px;
+  width: 32px;
+  height: 24px;
+  border-radius: 4px;
   background: linear-gradient(135deg, #f0d899 0%, #a87528 100%);
   box-shadow: inset 0 0 0 1px rgba(26, 18, 10, 0.4);
   position: relative;
 }
-.gift-card__chip::before {
+.rewards-card-art__chip::before {
   content: "";
   position: absolute;
   inset: 4px 6px;
   border: 1px solid rgba(26, 18, 10, 0.45);
   border-radius: 3px;
 }
+
+/* Tier ladder */
+.rewards__tiers {
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+}
+.rewards__tiers h3 { margin-top: 0; margin-bottom: 18px; }
+
+.tiers {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px;
+  display: grid;
+  gap: 10px;
+}
+.tiers li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 16px;
+  align-items: baseline;
+  padding: 14px 18px;
+  background: rgba(246, 239, 230, 0.025);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+}
+.tiers li.is-unlocked {
+  border-color: rgba(214, 168, 90, 0.55);
+  background: rgba(214, 168, 90, 0.07);
+  transform: translateX(4px);
+}
+.tiers li.is-next {
+  border-color: rgba(214, 168, 90, 0.4);
+  background: rgba(214, 168, 90, 0.04);
+}
+.tiers li strong {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.4rem;
+  color: var(--amber);
+  white-space: nowrap;
+}
+.tiers li.is-unlocked strong { color: var(--amber-soft); }
+.tiers li span {
+  color: var(--ink-dim);
+  font-size: 0.95rem;
+}
+.tiers li em { color: var(--amber); font-style: normal; }
 
 /* ---------- Testimonials ---------- */
 
@@ -1121,8 +1257,7 @@ p { margin: 0 0 1em; }
 /* ---------- Responsive overrides for new sections ---------- */
 
 @media (max-width: 800px) {
-  .gift { grid-template-columns: 1fr; gap: 36px; }
-  .gift__card-art { order: -1; }
+  .rewards { grid-template-columns: 1fr; gap: 24px; }
   .newsletter { grid-template-columns: 1fr; gap: 24px; }
   .newsletter__form { grid-template-columns: 1fr; }
   .newsletter__form .btn { width: 100%; }

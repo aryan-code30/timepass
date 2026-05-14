@@ -13,7 +13,7 @@ Static HTML/CSS/JS — no build step, no dependencies.
   - Delivery (DoorDash, Grubhub, Seamless, order.online)
   - Featured bottles ("This week's picks")
   - Tastings & Events
-  - Gift cards (with CSS-drawn gift card art)
+  - **Corner Pantry Rewards** — sign-up + balance card + redemption tiers
   - About + stats
   - Customer testimonials
   - FAQ accordion (native `<details>`)
@@ -24,7 +24,8 @@ Static HTML/CSS/JS — no build step, no dependencies.
   Cormorant Garamond + Inter typography, responsive grids, mobile nav,
   `prefers-reduced-motion` aware.
 - `script.js` — age-gate (session-scoped), mobile nav, scroll reveal,
-  footer year, newsletter form validation.
+  footer year, newsletter form validation, and the **Rewards** client
+  (sign-up, balance, tier progress, sign-out).
 
 **Brand assets**
 - `favicon.svg` — vector favicon (CP monogram in amber on dark)
@@ -140,10 +141,57 @@ Open `index.html` and update:
 The color theme lives at the top of `styles.css` under `:root` — change
 `--amber`, `--wine`, etc. to retheme the whole site.
 
+## Corner Pantry Rewards — how it works
+
+The site ships with a working **client-side prototype** of a loyalty
+program. The UX is real (sign up, see your balance, watch a progress bar
+fill toward the next tier, sign out), but the data lives in
+`localStorage` on the customer's device.
+
+**Default tiers** (edit in `script.js` `TIERS` and in the `<ul id="tiers-list">` markup):
+
+| Points | Reward                                  |
+| -----: | --------------------------------------- |
+|    100 | $5 off your next order                  |
+|    250 | Free Corner Pantry pint glass           |
+|    500 | $25 store credit                        |
+|  1,000 | $60 credit + a handpicked bottle        |
+
+Sign-ups get a **50-point welcome bonus** (`WELCOME_BONUS` in `script.js`).
+
+### Making it real
+
+To run an actual loyalty program, you'll need a backend that:
+
+1. Stores customer accounts (name + phone is the natural key).
+2. Credits points when an order is paid — for in-store orders this is
+   easiest if you use a POS like Square or Toast and turn on their
+   built-in loyalty product. For delivery orders, each platform has a
+   different story (DoorDash/Grubhub don't directly expose order
+   webhooks to the merchant; some merchants reconcile manually).
+3. Lets the customer redeem at checkout (show phone → POS deducts points).
+
+Easiest paths, ranked by effort:
+
+- **Square Loyalty** — if you already use Square for the POS, this is
+  basically a checkbox. The site's sign-up form would POST to your
+  Square customer directory; balance lookups would hit Square's API.
+- **Toast Loyalty / Clover Rewards** — same story, different POS.
+- **Third-party loyalty SaaS** (Loverse, FiveStars, Belly, Smile.io) —
+  drop-in services that handle accounts, points, and redemption.
+- **Custom backend** — biggest lift; only worth it if the above don't fit.
+
+In all cases, the changes to this site are small: in `script.js`, replace
+the `localStorage` calls inside `loadCard`, `saveCard`, and the form
+`submit` handler with `fetch()` calls to your chosen provider. The UI
+and tier ladder don't need to change.
+
 ## Notes
 
 - The age-gate is session-scoped (clears when the browser tab closes). It
   is a UX/compliance pattern, not a legal substitute for ID at the register.
 - "No, exit" sends visitors to a responsible-drinking resource.
+- The Rewards card is stored in `localStorage` (not a cookie) and never
+  leaves the customer's device — until you wire it up to a backend.
 - The site is fully responsive and respects `prefers-reduced-motion`.
 - External requests: Google Fonts and the OpenStreetMap iframe only.

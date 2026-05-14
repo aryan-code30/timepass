@@ -142,9 +142,9 @@
         <nav class="nav__menu" id="primary-nav" aria-label="Primary">
           <a href="#shop">Shop</a>
           <a href="#delivery">Delivery</a>
+          <a href="#rewards">Rewards</a>
           <a href="#events">Events</a>
           <a href="#about">About</a>
-          <a href="#faq">FAQ</a>
           <a href="#visit">Visit</a>
           <a href="tel:+16307520631" class="btn btn--small btn--primary">Call (630) 752‑0631</a>
         </nav>
@@ -173,7 +173,7 @@
           <li>Open 7 days · 7am – 12:30am</li>
           <li>Free curbside pickup</li>
           <li>Delivery on DoorDash & Grubhub</li>
-          <li>Gift wrapping</li>
+          <li>Earn rewards on every order</li>
         </ul>
       </div>
     </section>
@@ -465,39 +465,110 @@
       </div>
     </section>
 
-    <!-- Gift Cards -->
-    <section class="section section--alt gift-section">
-      <div class="container gift">
-        <div class="gift__copy">
-          <p class="eyebrow">Gift cards</p>
-          <h2>The easiest "thank you" you'll ever give.</h2>
-          <p>
-            Available in any amount from $10 to $500. Mailed in a hand-written
-            card or sent instantly by email — your call.
+    <!-- Rewards -->
+    <section id="rewards" class="section section--alt">
+      <div class="container">
+        <header class="section__head">
+          <p class="eyebrow">Corner Pantry Rewards</p>
+          <h2>Earn points every time you shop.</h2>
+          <p class="section__sub">
+            Spend $1, earn 1 point — in store, curbside, or on any delivery app.
+            Redeem points for store credit, glassware, and a curated bottle of the month.
           </p>
-          <div class="gift__actions">
-            <a href="tel:+16307520631" class="btn btn--primary">Order by phone</a>
-            <a href="#visit" class="btn btn--ghost">Pick one up in store</a>
+        </header>
+
+        <div class="rewards">
+          <div class="rewards__card-wrap">
+            <!-- Signed-out: signup form -->
+            <div class="rewards__card rewards__card--signup" id="rewards-signup">
+              <p class="rewards__tag">Join free</p>
+              <h3>Get your card in 30 seconds.</h3>
+              <p class="rewards__hint">
+                We'll store your card on this device — no app, no spam. Show
+                your phone number at the register or with your delivery order.
+              </p>
+              <form class="rewards__form" id="rewards-form" novalidate>
+                <label class="visually-hidden" for="rewards-name-input">Full name</label>
+                <input
+                  id="rewards-name-input"
+                  type="text"
+                  name="name"
+                  placeholder="Your name"
+                  autocomplete="name"
+                  required
+                />
+                <label class="visually-hidden" for="rewards-phone-input">Phone number</label>
+                <input
+                  id="rewards-phone-input"
+                  type="tel"
+                  name="phone"
+                  placeholder="Phone number"
+                  autocomplete="tel"
+                  required
+                />
+                <button type="submit" class="btn btn--primary">Create my card</button>
+                <p class="rewards__msg" id="rewards-msg" role="status" aria-live="polite"></p>
+              </form>
+              <p class="rewards__welcome">
+                <strong>+50 points</strong> welcome bonus when you sign up.
+              </p>
+            </div>
+
+            <!-- Signed-in: balance card -->
+            <div class="rewards__card rewards__card--balance" id="rewards-balance" hidden>
+              <div class="rewards-card-art" aria-hidden="true">
+                <div class="rewards-card-art__top">
+                  <img class="logo-mark logo-mark--img" src="img/logo-mark.png" alt="" width="28" height="28" />
+                  <span class="rewards-card-art__label">Rewards Member</span>
+                </div>
+                <div class="rewards-card-art__points">
+                  <span id="rewards-points">0</span>
+                  <span class="rewards-card-art__pts">pts</span>
+                </div>
+                <div class="rewards-card-art__bottom">
+                  <span id="rewards-member-name">Friend</span>
+                  <span class="rewards-card-art__chip"></span>
+                </div>
+              </div>
+              <p class="rewards__progress-text">
+                <span id="rewards-tonext-amount">100</span> points to your next reward
+                — <strong id="rewards-tonext-reward">$5 off</strong>.
+              </p>
+              <progress id="rewards-progress" max="100" value="0">0%</progress>
+              <div class="rewards__actions">
+                <button type="button" class="btn btn--ghost btn--small" id="rewards-refresh">Refresh balance</button>
+                <button type="button" class="btn btn--ghost btn--small" id="rewards-signout">Sign out</button>
+              </div>
+            </div>
           </div>
-          <ul class="gift__perks">
-            <li>No expiration</li>
-            <li>Use on anything in the store</li>
-            <li>Free hand-wrapped delivery within 2 miles</li>
-          </ul>
+
+          <div class="rewards__tiers">
+            <h3>Redeem your points</h3>
+            <ul class="tiers" id="tiers-list">
+              <li data-points="100">
+                <strong>100 pts</strong>
+                <span>$5 off your next order</span>
+              </li>
+              <li data-points="250">
+                <strong>250 pts</strong>
+                <span>Free Corner Pantry pint glass</span>
+              </li>
+              <li data-points="500">
+                <strong>500 pts</strong>
+                <span>$25 store credit</span>
+              </li>
+              <li data-points="1000">
+                <strong>1,000 pts</strong>
+                <span>$60 credit <em>+</em> a handpicked bottle of the month</span>
+              </li>
+            </ul>
+            <p class="muted">
+              Points are credited within 24 hours of purchase. To redeem,
+              just say "I'm a Rewards member" at the register or call
+              <a class="inline-link" href="tel:+16307520631">(630) 752-0631</a>.
+            </p>
+          </div>
         </div>
-        <aside class="gift__card-art" aria-hidden="true">
-          <div class="gift-card">
-            <div class="gift-card__top">
-              <span class="logo-mark">CP</span>
-              <span class="gift-card__label">Gift Card</span>
-            </div>
-            <div class="gift-card__amount">$100</div>
-            <div class="gift-card__bottom">
-              <span>Corner Pantry</span>
-              <span class="gift-card__chip"></span>
-            </div>
-          </div>
-        </aside>
       </div>
     </section>
 
@@ -602,6 +673,20 @@
         </header>
 
         <div class="faq">
+          <details>
+            <summary>How does the Rewards program work?</summary>
+            <p>
+              Sign up for free with your name and phone number — you can do it
+              right on this site or at the register. You'll earn
+              <strong>1 point for every $1 you spend</strong>, in store or
+              through any delivery app. Show your phone number at checkout
+              and we'll credit your account. Points unlock rewards like
+              $5 off, free glassware, and store credit — see the
+              <a class="inline-link" href="#rewards">Rewards section</a>
+              for the full tier list. Sign-ups get a 50-point welcome bonus.
+            </p>
+          </details>
+
           <details>
             <summary>Do you deliver?</summary>
             <p>
